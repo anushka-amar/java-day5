@@ -27,6 +27,14 @@ public class Contacts {
         this.email = email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
     public void getDetails(){
         System.out.println("\n\nEnter the details for new contact");
         Scanner sc = new Scanner(System.in);
@@ -54,6 +62,34 @@ public class Contacts {
         System.out.println("Enter email");
         this.email = sc.nextLine();
 
+    }
+
+    public void editDetails(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter new first name: ");
+        this.firstName = scanner.nextLine();
+
+        System.out.print("Enter new last name: ");
+        this.lastName = scanner.nextLine();
+
+        System.out.print("Enter new address: ");
+        this.address = scanner.nextLine();
+
+        System.out.print("Enter new city: ");
+        this.city = scanner.nextLine();
+
+        System.out.print("Enter new state: ");
+        this.state = scanner.nextLine();
+
+        System.out.print("Enter new zip: ");
+        this.zip = scanner.nextLine();
+
+        System.out.print("Enter new phone number: ");
+        this.phone_number = scanner.nextLine();
+
+        System.out.print("Enter new email: ");
+        this.email = scanner.nextLine();
     }
 
     public void printDetails(){
