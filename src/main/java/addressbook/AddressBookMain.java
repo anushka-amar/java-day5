@@ -1,9 +1,17 @@
 package addressbook;
 
+
+import java.util.Scanner;
+
 public class AddressBookMain {
+
     public static void main(String[] args) {
         System.out.println("Welcome to address book program");
-        Contacts contact1 = new Contacts("Jane", "doe", "Apt. 938 9147 Doug Crescent", 678975890, "janedoe@gmail.com");
-        contact1.printDetails(contact1);
+        Contacts person1 = new Contacts("Jane", "doe", "Suite 911 44954 Flat Port", "Galen", "ND", "7245", "77383278", "janedoe@gmail.com");
+        person1.printDetails();
+
+        Contacts person2 = new Contacts();
+        person2.getDetails();
+        person2.printDetails();
     }
 }

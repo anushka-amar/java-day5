@@ -10,6 +10,7 @@ target/
 .idea/libraries/
 .idea/
 pom.xml
+README.md
 src/test/
 *.iws
 *.iml
