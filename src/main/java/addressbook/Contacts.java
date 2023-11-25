@@ -58,12 +58,7 @@ public class Contacts {
 
     public void printDetails(){
         System.out.println("Contact details for "+ firstName+" "+lastName+" is:-");
-        System.out.println("First name: "+firstName);
-        System.out.println("Last name: "+lastName);
-        System.out.println("Address: "+address);
-        System.out.println("City: "+city);
-        System.out.println("State: "+state);
-        System.out.println("Zip " +zip);
+        System.out.println("Address: "+address+", "+city+", "+state+", "+zip);
         System.out.println("Phone number "+phone_number);
         System.out.println("Email: "+email);
 
