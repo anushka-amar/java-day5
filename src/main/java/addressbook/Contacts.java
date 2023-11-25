@@ -96,7 +96,7 @@ public class Contacts {
         System.out.println("Contact details for "+ firstName+" "+lastName+" is:-");
         System.out.println("Address: "+address+", "+city+", "+state+", "+zip);
         System.out.println("Phone number "+phone_number);
-        System.out.println("Email: "+email);
+        System.out.println("Email: "+email+"\n\n");
 
     }
 }

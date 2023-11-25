@@ -23,26 +23,40 @@ public class AddressBookMain {
                 return;
             }
         }
-        System.out.println("Contact not found");
+        System.out.println("No such contact there to be edited\n\n");
     }
 
+    public void deleteContact(String firstName, String lastName){
+        for(Contacts contact : contactList){
+            if(contact.getFirstName().equals(firstName) && contact.getLastName().equals(lastName)){
+                System.out.println("Deleting "+firstName+"'s contact info ");
+                contactList.remove(contact);
+                System.out.println("Contact deleted sucessfully!\n\n");
+                return;
+            }
+        }
+        System.out.println("Contact not found");
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to address book program");
 
         AddressBookMain addressBook = new AddressBookMain();
-        Contacts contact1 = new Contacts("Jane", "doe", "Suite 911 44954 Flat Port", "Galen", "ND", "7245", "77383278", "janedoe@gmail.com");
+        Contacts contact1 = new Contacts("Anushka", "Amar", "Suite 911 44954 Flat Port", "Galen", "ND", "7245", "77383278", "janedoe@gmail.com");
         addressBook.addContact(contact1);
         contact1.printDetails();
-
 
         Contacts contact2 = new Contacts();
         contact2.getDetails();
         addressBook.addContact(contact1);
         contact2.printDetails();
-
+        
         //Editing existing Contact
-        addressBook.editContact("Jane", "doe");
+        addressBook.editContact("Anushka", "Amar");
         contact1.printDetails();
+
+        //deleting existing Contact
+        addressBook.deleteContact("Anushka", "Amar");
+
 
     }
 }
