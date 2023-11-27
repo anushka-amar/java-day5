@@ -2,16 +2,17 @@ package addressbook;
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class AddressBookMain {
+public class AddressBook {
     private ArrayList<Contacts> contactList;
 
-    public AddressBookMain(){
+    public AddressBook(){
+
         this.contactList = new ArrayList<>();
     }
     public void addContact(Contacts contact){
         contactList.add(contact);
+        System.out.println("Contact added successfully!\n");
     }
 
     public void editContact(String firstName, String lastName){
@@ -37,26 +38,5 @@ public class AddressBookMain {
         }
         System.out.println("Contact not found");
     }
-    public static void main(String[] args) {
-        System.out.println("Welcome to address book program");
 
-        AddressBookMain addressBook = new AddressBookMain();
-        Contacts contact1 = new Contacts("Anushka", "Amar", "Suite 911 44954 Flat Port", "Galen", "ND", "7245", "77383278", "janedoe@gmail.com");
-        addressBook.addContact(contact1);
-        contact1.printDetails();
-
-        Contacts contact2 = new Contacts();
-        contact2.getDetails();
-        addressBook.addContact(contact1);
-        contact2.printDetails();
-        
-        //Editing existing Contact
-        addressBook.editContact("Anushka", "Amar");
-        contact1.printDetails();
-
-        //deleting existing Contact
-        addressBook.deleteContact("Anushka", "Amar");
-
-
-    }
 }

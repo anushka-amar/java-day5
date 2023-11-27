@@ -90,6 +90,8 @@ public class Contacts {
 
         System.out.print("Enter new email: ");
         this.email = scanner.nextLine();
+
+        System.out.println("\n\nContact edited successfully!\n");
     }
 
     public void printDetails(){
