@@ -1,17 +1,17 @@
 package addressbook;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBookSystem {
     private Map<String, AddressBook> addressBooksCollection;
 
+    /*Instantiating a system to store a collection of address books*/
     public AddressBookSystem() {
 
         this.addressBooksCollection = new HashMap<>();
     }
 
+    /* method to add address book to a system */
     public void addAddressBook(String name){ //acting as a setter method
         if(!addressBooksCollection.containsKey(name)){
             addressBooksCollection.put(name, new AddressBook());
@@ -25,6 +25,22 @@ public class AddressBookSystem {
         return addressBooksCollection.get(name);
     }
 
+    public List<Contacts> searchPersonByCity(String city){
+        List<Contacts> result = new ArrayList<>();
+        for (AddressBook addressBook : addressBooksCollection.values()){
+            result.addAll(addressBook.searchByCity(city)); //adds all the elements of the result of search by city in a single add book
+        }
+        return result;
+    }
+
+    public List<Contacts> searchPersonByState(String state){
+        List<Contacts> result = new ArrayList<>();
+        for (AddressBook addressBook : addressBooksCollection.values()){
+            result.addAll(addressBook.searchByCity(state)); //adds all the elements of the result of search by city in a single add book
+        }
+        return result;
+    }
+
     public void printAddressBooks(){
         System.out.println("Address Books: ");
         for (String name : addressBooksCollection.keySet()){
@@ -32,43 +48,4 @@ public class AddressBookSystem {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to address book program\n");
-        Scanner scanner = new Scanner(System.in);
-
-        AddressBookSystem addressBookSystem = new AddressBookSystem();
-
-        //creating a new address book
-        System.out.println("Enter the name for a new address book to be added to the system");
-        String address_book_name1 = scanner.nextLine();
-        addressBookSystem.addAddressBook(address_book_name1);
-        System.out.println("Address Book `"+ address_book_name1+"` added to the system\n");
-
-        //Adding contacts to the address book
-        System.out.println("Adding contacts:-");
-        AddressBook currBook = addressBookSystem.getAddressBook(address_book_name1);
-
-        //adding contact1
-        Contacts contact1 = new Contacts();
-        contact1.getDetails();
-        currBook.addContact(contact1);
-
-        //Trying to add a duplicate contact to the address book
-        Contacts contact2 = new Contacts();
-        contact2.getDetails();
-        currBook.addContact(contact2);
-
-        //editing a contact in the address book
-        currBook.editContact("jane", "doe");
-
-        //deleting contact from address book
-        currBook.deleteContact("jane", "doe");
-
-        //printing contacts in the current address book
-        currBook.printContacts();
-
-        addressBookSystem.printAddressBooks();
-
-
-    }
 }
