@@ -25,6 +25,8 @@ public class AddressBookSystem {
         return addressBooksCollection.get(name);
     }
 
+    /* method that iterates through each add book
+     and get the contacts matching the city*/
     public List<Contacts> searchPersonByCity(String city){
         List<Contacts> result = new ArrayList<>();
         for (AddressBook addressBook : addressBooksCollection.values()){
@@ -33,12 +35,36 @@ public class AddressBookSystem {
         return result;
     }
 
+    /* method that iterates through each add book
+     and get the contacts matching the state*/
     public List<Contacts> searchPersonByState(String state){
         List<Contacts> result = new ArrayList<>();
         for (AddressBook addressBook : addressBooksCollection.values()){
             result.addAll(addressBook.searchByCity(state)); //adds all the elements of the result of search by city in a single add book
         }
         return result;
+    }
+
+    /* method that iterates through all the add books
+       and increments the count if any contact matches the
+       city name in the add book */
+    public long getContactCountByCity(String city) {
+        long count = 0;
+        for (AddressBook addressBook : addressBooksCollection.values()) {
+            count += addressBook.getContactCountByCity(city);
+        }
+        return count;
+    }
+
+    /* method that iterates through all the add books
+       and increments the count if any contact matches the
+       state name in the add book */
+    public long getContactCountByState(String state) {
+        long count = 0;
+        for (AddressBook addressBook : addressBooksCollection.values()) {
+            count += addressBook.getContactCountByState(state);
+        }
+        return count;
     }
 
     public void printAddressBooks(){

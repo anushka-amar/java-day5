@@ -67,5 +67,18 @@ public class Main {
         }
 
 
+        //getting count of contacts matching a city
+        System.out.println("Enter the city name");
+        String cityName = scanner.nextLine();
+        long cityCount = addressBookSystem.getContactCountByCity(cityName);
+        System.out.println("Number of contacts matching in "+cityName+" is "+cityCount);
+
+        //getting count of contacts matching a state
+        System.out.println("Enter the city state");
+        String stateName = scanner.nextLine();
+        long stateCount = addressBookSystem.getContactCountByState(stateName);
+        System.out.println("Number of contacts matching in "+stateName+" is "+stateCount);
+
+
     }
 }

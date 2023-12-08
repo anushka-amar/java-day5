@@ -58,7 +58,8 @@ public class AddressBook {
         System.out.println("Contact not found");
     }
 
-    /* method to search all contacts by city name */
+    /* method that iterates through all the contacts in the
+       add book and returns contacts matching the city */
     public List<Contacts> searchByCity(String city){
         List<Contacts> result = new ArrayList<>(); //new array list to store contacts with specified city
         for(Contacts contact : contactList){
@@ -69,7 +70,8 @@ public class AddressBook {
         return result;
     }
 
-    /* method to search all contacts by state name */
+    /* method that iterates through all the contacts in the
+       add book and returns contacts matching the state */
     public List<Contacts> searchByState(String state){
         List<Contacts> result = new ArrayList<>(); //new array list to store contacts with specified city
         for(Contacts contact : contactList){
@@ -78,6 +80,18 @@ public class AddressBook {
             }
         }
         return result;
+    }
+
+    /* returns size of the result list
+       that matches the city name */
+    public long getContactCountByCity(String city) {
+        return searchByCity(city).size();
+    }
+
+    /* returns size of the result list
+       that matches the state name */
+    public long getContactCountByState(String state) {
+        return searchByState(state).size();
     }
 
     public void printContacts(){
