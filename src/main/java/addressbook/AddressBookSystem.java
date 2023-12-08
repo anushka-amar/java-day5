@@ -8,6 +8,7 @@ public class AddressBookSystem {
     private Map<String, AddressBook> addressBooksCollection;
 
     public AddressBookSystem() {
+
         this.addressBooksCollection = new HashMap<>();
     }
 
@@ -25,6 +26,7 @@ public class AddressBookSystem {
     }
 
     public void printAddressBooks(){
+        System.out.println("Address Books: ");
         for (String name : addressBooksCollection.keySet()){
             System.out.println(name);
         }
@@ -36,31 +38,35 @@ public class AddressBookSystem {
 
         AddressBookSystem addressBookSystem = new AddressBookSystem();
 
+        //creating a new address book
         System.out.println("Enter the name for a new address book to be added to the system");
         String address_book_name1 = scanner.nextLine();
         addressBookSystem.addAddressBook(address_book_name1);
         System.out.println("Address Book `"+ address_book_name1+"` added to the system\n");
 
+        //Adding contacts to the address book
         System.out.println("Adding contacts:-");
         AddressBook currBook = addressBookSystem.getAddressBook(address_book_name1);
 
-        //adding contacts
+        //adding contact1
         Contacts contact1 = new Contacts();
         contact1.getDetails();
         currBook.addContact(contact1);
 
+        //Trying to add a duplicate contact to the address book
         Contacts contact2 = new Contacts();
         contact2.getDetails();
         currBook.addContact(contact2);
 
-        //editing contact
+        //editing a contact in the address book
         currBook.editContact("jane", "doe");
 
         //deleting contact from address book
         currBook.deleteContact("jane", "doe");
 
+        //printing contacts in the current address book
+        currBook.printContacts();
 
-        System.out.println("The Address books in the system are");
         addressBookSystem.printAddressBooks();
 
 

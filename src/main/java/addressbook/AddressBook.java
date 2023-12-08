@@ -2,17 +2,25 @@ package addressbook;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AddressBook {
     private ArrayList<Contacts> contactList;
+    private Set<String> uniqueNames;
 
     public AddressBook(){
-
         this.contactList = new ArrayList<>();
+        this.uniqueNames = new HashSet<>();
     }
     public void addContact(Contacts contact){
-        contactList.add(contact);
-        System.out.println("Contact added successfully!\n");
+        if(!isDuplicate(contact)){
+            contactList.add(contact);
+            uniqueNames.add(contact.getFirstName()+" "+contact.getLastName());
+            System.out.println("Contact added successfully!\n");
+            return;
+        }
+        System.out.println("A contact with name "+contact.getFirstName()+" "+contact.getLastName()+" already exists");
     }
 
     public void editContact(String firstName, String lastName){
@@ -37,6 +45,17 @@ public class AddressBook {
             }
         }
         System.out.println("Contact not found");
+    }
+
+    public boolean isDuplicate(Contacts contact){
+        return uniqueNames.contains(contact.getFirstName()+ " "+contact.getLastName());
+    }
+
+    public void printContacts(){
+        for (Contacts contact : contactList){
+            contact.printDetails();
+            System.out.println("------------------------");
+        }
     }
 
 }
