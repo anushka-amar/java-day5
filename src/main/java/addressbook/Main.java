@@ -53,7 +53,6 @@ public class Main {
             }
         }
 
-
         //search person by state
         System.out.print("Enter the state to search for: ");
         String state = scanner.nextLine();
@@ -65,7 +64,6 @@ public class Main {
                 System.out.println(contact.getFirstName()+" "+contact.getLastName());
             }
         }
-
 
         //getting count of contacts matching a city
         System.out.println("Enter the city name");
@@ -79,6 +77,8 @@ public class Main {
         long stateCount = addressBookSystem.getContactCountByState(stateName);
         System.out.println("Number of contacts matching in "+stateName+" is "+stateCount);
 
+        //Write contacts to file
+        addressBookSystem.getAddressBook(address_book_name1).writeToFile("temp.txt");
 
     }
 }

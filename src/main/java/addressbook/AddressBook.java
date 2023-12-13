@@ -1,6 +1,7 @@
 package addressbook;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -92,6 +93,18 @@ public class AddressBook {
        that matches the state name */
     public long getContactCountByState(String state) {
         return searchByState(state).size();
+    }
+
+    /* method to write contacts of a particular address-book to a file */
+    public void writeToFile(String fileName) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+            for (Contacts contact : contactList) {
+                writer.println(contact);
+            }
+            System.out.println("Contacts written to file successfully.");
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
+        }
     }
 
     public void printContacts(){
